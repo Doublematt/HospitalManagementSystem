@@ -1,3 +1,24 @@
 .colorAnchorPane {
     -fx-background-color:"BLUE";
 }
+
+.basicAnchorPane{
+    -fx-background-color: #bdd9e4;
+}
+
+.component {
+    -fx-color-fill:#69b8d0;
+}
+
+.textField {
+    -fx-background-color: "white";
+    -fx-background-radius: 7px;
+    -fx-border-color: linear-gradient( to bottom right, "grey", "white");
+    -fx-border-radius: 7px;
+    -fx-text-inner-color:#000;
+}
+
+.colorButton {
+    -fx-text-fill: "white";
+    -fx-background-color: #69b8d0
+}

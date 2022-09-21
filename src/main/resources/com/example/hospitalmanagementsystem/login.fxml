@@ -49,8 +49,8 @@
                   <Font name="Century" size="20.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="LinkedinLink" layoutX="156.0" layoutY="379.0" prefHeight="23.0" prefWidth="125.0" styleClass="colorHyperLink" stylesheets="@styles.css" text="\@ Linkedin" />
-            <Hyperlink fx:id="githubLink" layoutX="156.0" layoutY="356.0" prefHeight="23.0" prefWidth="188.0" styleClass="colorHyperLink" stylesheets="@styles.css" text="\@ GitHub Doublematt" />
+            <Hyperlink fx:id="LinkedinLink" layoutX="156.0" layoutY="379.0" onAction="#openLink" prefHeight="23.0" prefWidth="125.0" styleClass="colorHyperLink" stylesheets="@styles.css" text="\@ Linkedin" />
+            <Hyperlink fx:id="githubLink" layoutX="156.0" layoutY="356.0" onAction="#openLink" prefHeight="23.0" prefWidth="188.0" styleClass="colorHyperLink" stylesheets="@styles.css" text="\@ GitHub Doublematt" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="createAccountPane" prefHeight="411.0" prefWidth="614.0" styleClass="basicAnchorPane" stylesheets="@styles.css" visible="false">

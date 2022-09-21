@@ -6,6 +6,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.awt.Desktop;
+
 public class LoginController {
 
     @FXML
@@ -88,6 +93,16 @@ public class LoginController {
 
         }
 
+    }
+
+    public void openLink (ActionEvent event) throws URISyntaxException, IOException {
+        if (event.getSource() == githubLink){
+            System.out.println("Oppening the github link");
+            Desktop.getDesktop().browse(new URI("https://github.com/Doublematt"));
+        }else if (event.getSource() == LinkedinLink){
+            System.out.println("Oppening the Linkedin link");
+            Desktop.getDesktop().browse(new URI("https://www.linkedin.com/in/mateusz-matusewicz-a8783b233/"));
+        }
     }
 
 }

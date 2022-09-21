@@ -11,15 +11,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.LoginController">
    <children>
-      <AnchorPane layoutX="-8.0" layoutY="-6.0" prefHeight="411.0" prefWidth="615.0" />
-      <AnchorPane layoutX="2.0" layoutY="-6.0" prefHeight="411.0" prefWidth="614.0" styleClass="basicAnchorPane" stylesheets="@styles.css">
+      <AnchorPane fx:id="loginPane" layoutX="2.0" layoutY="-6.0" prefHeight="411.0" prefWidth="614.0" styleClass="basicAnchorPane" stylesheets="@styles.css">
          <children>
-            <TextField layoutX="233.0" layoutY="175.0" promptText="login" styleClass="textField" stylesheets="@styles.css" />
-            <PasswordField layoutX="233.0" layoutY="212.0" promptText="password" styleClass="textField" stylesheets="@styles.css" />
-            <Button layoutX="283.0" layoutY="262.0" mnemonicParsing="false" styleClass="colorButton" stylesheets="@styles.css" text="Submit" />
-            <Hyperlink alignment="CENTER" layoutX="225.0" layoutY="307.0" prefHeight="23.0" prefWidth="170.0" text="create a new account">
+            <TextField fx:id="logLoginField" layoutX="233.0" layoutY="175.0" promptText="login" styleClass="textField" stylesheets="@styles.css" />
+            <PasswordField fx:id="logPasswordField" layoutX="233.0" layoutY="212.0" promptText="password" styleClass="textField" stylesheets="@styles.css" />
+            <Button fx:id="logSubmitButton" layoutX="283.0" layoutY="262.0" mnemonicParsing="false" styleClass="colorButton" stylesheets="@styles.css" text="Submit" />
+            <Hyperlink fx:id="createAccountLink" alignment="CENTER" layoutX="225.0" layoutY="307.0" onAction="#changePane" prefHeight="23.0" prefWidth="170.0" text="create a new account">
                <font>
                   <Font name="Century" size="14.0" />
                </font></Hyperlink>
@@ -38,7 +37,7 @@
                         <Image url="@images/hospitaRight.jpg" />
                      </image>
                   </ImageView>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="25.0" mnemonicParsing="false" textFill="WHITE">
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="73.0" layoutY="22.0" mnemonicParsing="false" onAction="#exit" textFill="WHITE">
                      <graphic>
                         <FontAwesomeIconView fill="#bc6994" glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="25.428571701049805" />
                      </graphic>
@@ -50,8 +49,53 @@
                   <Font name="Century" size="20.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="156.0" layoutY="379.0" prefHeight="23.0" prefWidth="125.0" text="\@ Linkedin" />
-            <Hyperlink layoutX="156.0" layoutY="356.0" prefHeight="23.0" prefWidth="188.0" text="\@ GitHub Doublematt" />
+            <Hyperlink fx:id="LinkedinLink" layoutX="156.0" layoutY="379.0" prefHeight="23.0" prefWidth="125.0" text="\@ Linkedin" />
+            <Hyperlink fx:id="githubLink" layoutX="156.0" layoutY="356.0" prefHeight="23.0" prefWidth="188.0" text="\@ GitHub Doublematt" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="createAccountPane" prefHeight="411.0" prefWidth="614.0" styleClass="basicAnchorPane" stylesheets="@styles.css" visible="false">
+         <children>
+            <TextField fx:id="regEmailField" layoutX="233.0" layoutY="89.0" promptText="email" styleClass="textField" stylesheets="@styles.css" />
+            <TextField fx:id="regLoginField" layoutX="233.0" layoutY="123.0" promptText="login" styleClass="textField" stylesheets="@styles.css" />
+            <PasswordField fx:id="regPasswordField" layoutX="233.0" layoutY="159.0" promptText="password" styleClass="textField" stylesheets="@styles.css" />
+            <PasswordField fx:id="regConfirmPasswordField" layoutX="233.0" layoutY="195.0" promptText="confirm password" styleClass="textField" stylesheets="@styles.css" />
+            <TextField fx:id="regFirstNameField" layoutX="233.0" layoutY="231.0" promptText="first name" styleClass="textField" stylesheets="@styles.css" />
+            <TextField fx:id="regLastNameField" layoutX="233.0" layoutY="267.0" promptText="last name" styleClass="textField" stylesheets="@styles.css" />
+            <Button layoutX="259.0" layoutY="310.0" mnemonicParsing="false" styleClass="colorButton" stylesheets="@styles.css" text="Create account" />
+            <Hyperlink fx:id="loginLink" alignment="CENTER" layoutX="222.0" layoutY="351.0" onAction="#changePane" prefHeight="23.0" prefWidth="170.0" text="log in into account">
+               <font>
+                  <Font name="Century" size="14.0" />
+               </font>
+            </Hyperlink>
+            <AnchorPane layoutX="-6.0" layoutY="-13.0" prefHeight="428.0" prefWidth="149.0" styleClass="colorAnchorPane" stylesheets="@styles.css">
+               <children>
+                  <ImageView fitHeight="425.0" fitWidth="156.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/hospitalLeft.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="471.0" layoutY="-13.0" prefHeight="415.0" prefWidth="142.0" styleClass="colorAnchorPane" stylesheets="@styles.css">
+               <children>
+                  <ImageView fitHeight="424.0" fitWidth="149.0" layoutX="-4.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/hospitaRight.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="73.0" layoutY="22.0" mnemonicParsing="false" onAction="#exit" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView fill="#bc6994" glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="25.428571701049805" />
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <FontAwesomeIconView fill="#69b8d0" glyphName="USER_PLUS" layoutX="289.0" layoutY="53.0" size="45" wrappingWidth="38.14285659790039" />
+            <Label alignment="CENTER" layoutX="236.0" layoutY="59.0" prefHeight="25.0" prefWidth="145.0" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="Century" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

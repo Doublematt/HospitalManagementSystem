@@ -13,7 +13,7 @@
 .textField {
     -fx-background-color: "white";
     -fx-background-radius: 7px;
-    -fx-border-color: linear-gradient( to bottom right, "grey", "white");
+    -fx-border-color: #fff;
     -fx-border-radius: 7px;
     -fx-text-inner-color:#000;
 }

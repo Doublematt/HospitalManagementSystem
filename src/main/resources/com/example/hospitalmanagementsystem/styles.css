@@ -22,3 +22,13 @@
     -fx-text-fill: "white";
     -fx-background-color: #69b8d0
 }
+
+.colorButton:hover {
+    -fx-background-color:#1779bf;
+    -fx-cursor: hand;
+}
+
+.colorHyperLink:hover {
+    -fx-text-fill: #1779bf;
+
+}

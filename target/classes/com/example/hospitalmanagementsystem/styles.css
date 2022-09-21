@@ -13,7 +13,7 @@
 .textField {
     -fx-background-color: "white";
     -fx-background-radius: 7px;
-    -fx-border-color: linear-gradient( to bottom right, "grey", "white");
+    -fx-border-color: #fff;
     -fx-border-radius: 7px;
     -fx-text-inner-color:#000;
 }
@@ -21,4 +21,14 @@
 .colorButton {
     -fx-text-fill: "white";
     -fx-background-color: #69b8d0
+}
+
+.colorButton:hover {
+    -fx-background-color:#1779bf;
+    -fx-cursor: hand;
+}
+
+.colorHyperLink:hover {
+    -fx-text-fill: #1779bf;
+
 }

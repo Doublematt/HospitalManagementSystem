@@ -4,6 +4,7 @@ module com.example.hospitalmanagementsystem {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
+    requires java.sql;
 
     opens com.example.hospitalmanagementsystem to javafx.fxml;
     exports com.example.hospitalmanagementsystem;

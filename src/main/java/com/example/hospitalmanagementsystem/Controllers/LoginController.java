@@ -1,5 +1,6 @@
 package com.example.hospitalmanagementsystem.Controllers;
 
+import com.example.hospitalmanagementsystem.Database.UsersConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.awt.Desktop;
+import java.util.HashMap;
 
 public class LoginController {
 
@@ -55,9 +57,17 @@ public class LoginController {
     @FXML
     private PasswordField regPasswordField;
 
+    @FXML
+    private TextField logLoginField;
+
+    @FXML
+    private PasswordField logPasswordField;
+
     //no FXML variable
     private Alert alert;
     private Stage stage;
+    private UsersConnection connection = new UsersConnection();
+    private HashMap<String, String> usersMap = new HashMap<>();
 
     /*
     Function to change between login and register
@@ -102,6 +112,21 @@ public class LoginController {
         }else if (event.getSource() == LinkedinLink){
             System.out.println("Oppening the Linkedin link");
             Desktop.getDesktop().browse(new URI("https://www.linkedin.com/in/mateusz-matusewicz-a8783b233/"));
+        }
+    }
+
+    public void login (){
+
+        usersMap = connection.getUserToLogin();
+        if (logLoginField.getText().equals("") || logPasswordField.getText().equals("")) {
+            System.out.println("one field is empty!");
+
+        }else if (usersMap.get(logLoginField.getText()).equals(logPasswordField.getText())) {
+                // log user in
+                System.out.println("loggin in");
+
+            } else {
+                System.out.println("failed!");
         }
     }
 

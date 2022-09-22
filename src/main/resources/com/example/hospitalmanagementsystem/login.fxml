@@ -17,7 +17,7 @@
          <children>
             <TextField fx:id="logLoginField" layoutX="233.0" layoutY="175.0" promptText="login" styleClass="textField" stylesheets="@styles.css" />
             <PasswordField fx:id="logPasswordField" layoutX="233.0" layoutY="212.0" promptText="password" styleClass="textField" stylesheets="@styles.css" />
-            <Button fx:id="logSubmitButton" layoutX="283.0" layoutY="262.0" mnemonicParsing="false" styleClass="colorButton" stylesheets="@styles.css" text="Submit" />
+            <Button fx:id="logSubmitButton" layoutX="283.0" layoutY="262.0" mnemonicParsing="false" onAction="#login" styleClass="colorButton" stylesheets="@styles.css" text="Submit" />
             <Hyperlink fx:id="createAccountLink" alignment="CENTER" layoutX="225.0" layoutY="307.0" onAction="#changePane" prefHeight="23.0" prefWidth="170.0" styleClass="colorHyperLink" stylesheets="@styles.css" text="create a new account">
                <font>
                   <Font name="Century" size="14.0" />

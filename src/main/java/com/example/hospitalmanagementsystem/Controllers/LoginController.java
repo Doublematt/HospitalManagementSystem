@@ -104,7 +104,11 @@ public class LoginController {
         }
 
     }
-
+    /*
+        function operating on the hyperlinks
+        both links are valid 28.09.2022
+        method open browser and uses one of the links from below
+     */
     public void openLink (ActionEvent event) throws URISyntaxException, IOException {
         if (event.getSource() == githubLink){
             System.out.println("Oppening the github link");
@@ -114,6 +118,12 @@ public class LoginController {
             Desktop.getDesktop().browse(new URI("https://www.linkedin.com/in/mateusz-matusewicz-a8783b233/"));
         }
     }
+    /*
+        contains database connection method which returns hashMap of user's logins and passwords
+        first is not empty check
+        second check proves that key - login equals to value - password
+        for now there is only print, It will change after adding new fxml file.
+     */
 
     public void login (){
 
@@ -123,11 +133,42 @@ public class LoginController {
 
         }else if (usersMap.get(logLoginField.getText()).equals(logPasswordField.getText())) {
                 // log user in
-                System.out.println("loggin in");
+                System.out.println("logging in");
 
             } else {
                 System.out.println("failed!");
         }
+    }
+
+    //need to add some validation to user
+    // possibly create new user pojo class,  may be useful
+    /*
+        array of user data is temporary answer, need to  find something better
+        validation check only if fields are not empty
+        only if they are not empty if adds new user to database
+     */
+    public void registerNewUser (){
+
+        String [] user = {regEmailField.getText(), regLoginField.getText(), regPasswordField.getText(), regFirstNameField.getText(), regLastNameField.getText()};
+
+        System.out.println("check not empty returns: " + checkNotEmptyRegister(user));
+        if (checkNotEmptyRegister(user)){
+            connection.registerNewUser(user[0], user[1], user[2], user[3], user[4]);
+        }else{
+            System.out.println("one or more fields are empty! ");
+        }
+
+
+
+    }
+
+    //validation method - not empty register fields
+    private boolean checkNotEmptyRegister (String [] fields){
+        for (String field : fields){
+            if (field.equals(""))
+                return false;
+        }
+        return true;
     }
 
 }

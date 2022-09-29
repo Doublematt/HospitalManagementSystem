@@ -1,8 +1,13 @@
 package com.example.hospitalmanagementsystem.Controllers;
 
 import com.example.hospitalmanagementsystem.Database.UsersConnection;
+import com.example.hospitalmanagementsystem.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -125,7 +130,7 @@ public class LoginController {
         for now there is only print, It will change after adding new fxml file.
      */
 
-    public void login (){
+    public void login (ActionEvent e){
 
         usersMap = connection.getUserToLogin();
         if (logLoginField.getText().equals("") || logPasswordField.getText().equals("")) {
@@ -133,6 +138,7 @@ public class LoginController {
 
         }else if (usersMap.get(logLoginField.getText()).equals(logPasswordField.getText())) {
                 // log user in
+                changeFXML(e);
                 System.out.println("logging in");
 
             } else {
@@ -169,6 +175,26 @@ public class LoginController {
                 return false;
         }
         return true;
+    }
+
+    private void changeFXML (ActionEvent event){
+
+        FXMLLoader loader;
+        Stage stage;
+        Scene scene;
+
+        try{
+            loader = new FXMLLoader(Main.class.getResource("dashboard.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(loader.load());
+            stage.setScene(scene);
+            stage.show();
+
+        }catch (Exception e){
+            System.out.println("Load new fxml error: " + e.getMessage());
+        }
+
+
     }
 
 }

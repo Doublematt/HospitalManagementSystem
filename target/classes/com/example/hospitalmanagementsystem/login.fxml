@@ -53,7 +53,7 @@
             <Hyperlink fx:id="githubLink" layoutX="156.0" layoutY="356.0" onAction="#openLink" prefHeight="23.0" prefWidth="188.0" styleClass="colorHyperLink" stylesheets="@CSSstyles/loginStyles.css" text="\@ GitHub Doublematt" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createAccountPane" prefHeight="411.0" prefWidth="614.0" styleClass="basicAnchorPane" stylesheets="@CSSstyles/loginStyles.css">
+      <AnchorPane fx:id="createAccountPane" prefHeight="411.0" prefWidth="614.0" styleClass="basicAnchorPane" stylesheets="@CSSstyles/loginStyles.css" visible="false">
          <children>
             <TextField fx:id="regEmailField" layoutX="233.0" layoutY="89.0" promptText="email" styleClass="textField" stylesheets="@CSSstyles/loginStyles.css" />
             <TextField fx:id="regLoginField" layoutX="233.0" layoutY="123.0" promptText="login" styleClass="textField" stylesheets="@CSSstyles/loginStyles.css" />

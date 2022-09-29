@@ -1,0 +1,12 @@
+
+.menuPane {
+              -fx-background-size: 1200 1000;
+              -fx-background-radius:  18 18 0 0;
+              -fx-border-radius: 18 18 0 0;
+              -fx-background-color: #2147d0;
+            }
+.contentPane {
+    -fx-background-radius: 18 18 18 18;
+    -fx-border-radius: 18 18 18 18;
+    -fx-background-color: #eee;
+}

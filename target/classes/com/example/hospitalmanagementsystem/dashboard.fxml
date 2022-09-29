@@ -4,5 +4,7 @@
 
 
 <AnchorPane prefHeight="712.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
-
+   <children>
+      <AnchorPane fx:id="menuPane" layoutY="99.0" prefHeight="615.0" prefWidth="155.0" />
+   </children>
 </AnchorPane>

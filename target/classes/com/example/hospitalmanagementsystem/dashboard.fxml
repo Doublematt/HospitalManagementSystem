@@ -9,29 +9,123 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
+<AnchorPane fx:id="rootPane" prefHeight="712.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
    <children>
-      <AnchorPane fx:id="menuPane" layoutX="-12.0" layoutY="99.0" prefHeight="615.0" prefWidth="167.0" styleClass="menuPane" stylesheets="@CSSstyles/dashboardStyles.css" />
+      <AnchorPane fx:id="menuPane" layoutX="-12.0" layoutY="99.0" prefHeight="615.0" prefWidth="167.0" styleClass="menuPane" stylesheets="@CSSstyles/dashboardStyles.css">
+         <children>
+            <Button layoutX="16.0" layoutY="94.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="medicaments" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+            </Button>
+            <Button layoutX="16.0" layoutY="147.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Patients" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="MEDKIT" size="20" />
+               </graphic>
+            </Button>
+            <Button layoutX="13.0" layoutY="208.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Staff" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="STETHOSCOPE" size="18" />
+               </graphic>
+            </Button>
+            <Button layoutX="13.0" layoutY="268.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="OR" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="AMBULANCE" size="20" />
+               </graphic>
+            </Button>
+            <Button layoutX="13.0" layoutY="329.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Beds" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="BED" size="20" />
+               </graphic>
+            </Button>
+            <Button layoutX="13.0" layoutY="385.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Analysis" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="LINE_CHART" size="20" />
+               </graphic>
+            </Button>
+            <FontAwesomeIconView fill="WHITE" glyphName="H_SQUARE" layoutX="65.0" layoutY="72.0" size="50" text="" />
+            <Button layoutX="13.0" layoutY="528.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="account" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER" size="20" />
+               </graphic>
+            </Button>
+         </children></AnchorPane>
       <Label layoutX="216.0" layoutY="71.0" prefHeight="57.0" prefWidth="400.0" text="Dashboard" textFill="#868ca1">
          <font>
             <Font name="Century" size="45.0" />
          </font>
       </Label>
       <Circle fill="#eeeeee" layoutX="1030.0" layoutY="52.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="989.0" layoutY="668.0" mnemonicParsing="false" text="EXIT">
+      <Button layoutX="989.0" layoutY="668.0" mnemonicParsing="false" onAction="#exit" text="EXIT">
          <graphic>
             <FontAwesomeIconView glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="28.0" />
          </graphic>
       </Button>
-      <AnchorPane layoutX="222.0" layoutY="176.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css" />
-      <AnchorPane layoutX="632.0" layoutY="176.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css" />
-      <AnchorPane layoutX="222.0" layoutY="446.0" prefHeight="222.0" prefWidth="758.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+      <AnchorPane layoutX="222.0" layoutY="176.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
          <children>
-            <ImageView fx:id="myImage" fitHeight="150.0" fitWidth="685.0" layoutX="257.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="5.0" layoutY="1.0" prefHeight="57.0" prefWidth="309.0" text="Patients admitted" textFill="#70768d">
+               <font>
+                  <Font name="Book Antiqua" size="23.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane layoutX="632.0" layoutY="176.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+         <children>
+            <Label layoutX="8.0" prefHeight="57.0" prefWidth="309.0" text="Patients discharged" textFill="#70768d">
+               <font>
+                  <Font name="Book Antiqua" size="23.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane fx:id="newsPane" layoutX="222.0" layoutY="446.0" prefHeight="222.0" prefWidth="758.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+         <children>
+            <ImageView fx:id="newsImage2" fitHeight="131.0" fitWidth="234.0" layoutX="266.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/genes.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="newsImage1" fitHeight="136.0" fitWidth="266.0" layoutX="8.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/drug.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="newsImage3" fitHeight="131.0" fitWidth="240.0" layoutX="499.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/coat.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="17.0" prefHeight="40.0" prefWidth="535.0" text="News from the world of medicine" textFill="#70768d">
+               <font>
+                  <Font name="Book Antiqua" size="31.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
+      <AnchorPane layoutX="661.0" layoutY="71.0" prefHeight="57.0" prefWidth="213.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+         <children>
+            <Label fx:id="nameLabel" alignment="CENTER" layoutX="4.0" layoutY="2.0" prefHeight="50.0" prefWidth="206.0" text="00:00:00">
+               <font>
+                  <Font name="Book Antiqua" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

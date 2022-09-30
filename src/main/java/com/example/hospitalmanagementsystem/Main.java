@@ -1,5 +1,6 @@
 package com.example.hospitalmanagementsystem;
 
+import com.example.hospitalmanagementsystem.Controllers.DashboardController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,12 +34,14 @@ public class Main extends Application {
         Exits the app
      */
     public void exit(Stage stage){
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit");
         alert.setHeaderText("");
         alert.setContentText("Are you sure? ");
 
         if(alert.showAndWait().get() == ButtonType.OK){
+            DashboardController.stop();
             System.out.println("close now");
             stage.close();
         }

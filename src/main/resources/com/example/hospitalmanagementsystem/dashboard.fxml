@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
+<AnchorPane fx:id="rootPane" prefHeight="712.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
    <children>
       <AnchorPane fx:id="menuPane" layoutX="-12.0" layoutY="99.0" prefHeight="615.0" prefWidth="167.0" styleClass="menuPane" stylesheets="@CSSstyles/dashboardStyles.css">
          <children>
@@ -58,7 +58,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="LINE_CHART" size="20" />
                </graphic>
             </Button>
-            <FontAwesomeIconView fill="WHITE" glyphName="HOSPITAL_0" layoutX="65.0" layoutY="72.0" size="50" text="" />
+            <FontAwesomeIconView fill="WHITE" glyphName="H_SQUARE" layoutX="65.0" layoutY="72.0" size="50" text="" />
             <Button layoutX="13.0" layoutY="528.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="account" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
@@ -74,7 +74,7 @@
          </font>
       </Label>
       <Circle fill="#eeeeee" layoutX="1030.0" layoutY="52.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="989.0" layoutY="668.0" mnemonicParsing="false" text="EXIT">
+      <Button layoutX="989.0" layoutY="668.0" mnemonicParsing="false" onAction="#exit" text="EXIT">
          <graphic>
             <FontAwesomeIconView glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="28.0" />
          </graphic>
@@ -118,10 +118,14 @@
                </font>
             </Label>
          </children></AnchorPane>
-      <Label fx:id="time" layoutX="585.0" layoutY="70.0" text="Time">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutX="661.0" layoutY="71.0" prefHeight="57.0" prefWidth="213.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+         <children>
+            <Label fx:id="nameLabel" alignment="CENTER" layoutX="4.0" layoutY="2.0" prefHeight="50.0" prefWidth="206.0" text="00:00:00">
+               <font>
+                  <Font name="Book Antiqua" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -10,3 +10,14 @@
     -fx-border-radius: 18 18 18 18;
     -fx-background-color: #eee;
 }
+
+.menuButton {
+    -fx-background-color: #2147d0;
+    -fx-background-radius: 18px;
+    -fx-border-radius: 18px;
+}
+
+.menuButton: hover{
+    -fx-background-color: #526bcd;
+    -fx-cursor: hand;
+}

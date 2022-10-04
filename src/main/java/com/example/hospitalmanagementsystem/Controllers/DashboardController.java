@@ -1,39 +1,39 @@
 package com.example.hospitalmanagementsystem.Controllers;
 
-import com.example.hospitalmanagementsystem.Main;
-import javafx.animation.FadeTransition;
-import javafx.animation.Interpolator;
-import javafx.animation.TranslateTransition;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import org.w3c.dom.Text;
+
 
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
+
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.scene.control.Button;
 
-import static java.lang.Thread.sleep;
+
 
 
 public class DashboardController  implements Initializable {
 
     @FXML
-    private AnchorPane menuPane, rootPane;
+    private Button dashboardButton;
+
+    @FXML
+    private Button patientsButton;
+
+    @FXML
+    private AnchorPane menuPane, rootPane, dashboardPane, patientPane;
 
     @FXML
     private ImageView newsImage1;
@@ -49,6 +49,7 @@ public class DashboardController  implements Initializable {
 
     @FXML
     private Label nameLabel;
+
 
     public  Thread thread;
     private static boolean processing = true;
@@ -88,4 +89,14 @@ public class DashboardController  implements Initializable {
     }
 
 
+
+    public void changePane(javafx.event.ActionEvent event) {
+        if(event.getSource() == dashboardButton){
+            patientPane.setVisible(false);
+            dashboardPane.setVisible(true);
+        } else if (event.getSource() == patientsButton){
+            patientPane.setVisible(true);
+            dashboardPane.setVisible(false);
+        }
+    }
 }

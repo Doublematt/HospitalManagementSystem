@@ -3,6 +3,8 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,12 +15,15 @@
    <children>
       <AnchorPane fx:id="menuPane" layoutX="-12.0" layoutY="99.0" prefHeight="615.0" prefWidth="167.0" styleClass="menuPane" stylesheets="@CSSstyles/dashboardStyles.css">
          <children>
-            <Button layoutX="16.0" layoutY="94.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="medicaments" textFill="WHITE">
+            <Button fx:id="dashboardButton" layoutX="16.0" layoutY="94.0" mnemonicParsing="false" onAction="#changePane" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="dashboard" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="CLIPBOARD" />
+               </graphic>
             </Button>
-            <Button layoutX="16.0" layoutY="147.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Patients" textFill="WHITE">
+            <Button fx:id="patientsButton" layoutX="16.0" layoutY="147.0" mnemonicParsing="false" onAction="#changePane" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Patients" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
                </font>
@@ -67,64 +72,114 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="USER" size="20" />
                </graphic>
             </Button>
+            <Button layoutX="13.0" layoutY="433.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="medicaments" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
-      <Label layoutX="216.0" layoutY="71.0" prefHeight="57.0" prefWidth="400.0" text="Dashboard" textFill="#868ca1">
-         <font>
-            <Font name="Century" size="45.0" />
-         </font>
-      </Label>
       <Circle fill="#eeeeee" layoutX="1030.0" layoutY="52.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
       <Button layoutX="989.0" layoutY="668.0" mnemonicParsing="false" onAction="#exit" text="EXIT">
          <graphic>
             <FontAwesomeIconView glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="28.0" />
          </graphic>
       </Button>
-      <AnchorPane layoutX="222.0" layoutY="176.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+      <AnchorPane fx:id="dashboardPane" layoutX="155.0" layoutY="45.0" prefHeight="647.0" prefWidth="835.0">
          <children>
-            <Label layoutX="5.0" layoutY="1.0" prefHeight="57.0" prefWidth="309.0" text="Patients admitted" textFill="#70768d">
+            <AnchorPane layoutX="49.0" layoutY="164.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+               <children>
+                  <Label layoutX="5.0" layoutY="1.0" prefHeight="57.0" prefWidth="309.0" text="Patients admitted" textFill="#70768d">
+                     <font>
+                        <Font name="Book Antiqua" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="426.0" layoutY="164.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+               <children>
+                  <Label layoutX="8.0" prefHeight="57.0" prefWidth="309.0" text="Patients discharged" textFill="#70768d">
+                     <font>
+                        <Font name="Book Antiqua" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="451.0" layoutY="54.0" prefHeight="57.0" prefWidth="213.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+               <children>
+                  <Label fx:id="nameLabel" alignment="CENTER" layoutX="4.0" layoutY="2.0" prefHeight="50.0" prefWidth="206.0" text="00:00:00">
+                     <font>
+                        <Font name="Book Antiqua" size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="39.0" layoutY="54.0" prefHeight="57.0" prefWidth="400.0" text="Dashboard" textFill="#868ca1">
                <font>
-                  <Font name="Book Antiqua" size="23.0" />
+                  <Font name="Century" size="45.0" />
                </font>
             </Label>
-         </children></AnchorPane>
-      <AnchorPane layoutX="632.0" layoutY="176.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+            <AnchorPane fx:id="newsPane" layoutX="39.0" layoutY="411.0" prefHeight="222.0" prefWidth="758.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
+               <children>
+                  <ImageView fx:id="newsImage2" fitHeight="131.0" fitWidth="234.0" layoutX="266.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/genes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="newsImage1" fitHeight="136.0" fitWidth="266.0" layoutX="8.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/drug.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="newsImage3" fitHeight="131.0" fitWidth="240.0" layoutX="499.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/coat.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="14.0" layoutY="17.0" prefHeight="40.0" prefWidth="535.0" text="News from the world of medicine" textFill="#70768d">
+                     <font>
+                        <Font name="Book Antiqua" size="31.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="patientPane" layoutX="165.0" layoutY="55.0" prefHeight="647.0" prefWidth="828.0" visible="false">
          <children>
-            <Label layoutX="8.0" prefHeight="57.0" prefWidth="309.0" text="Patients discharged" textFill="#70768d">
+            <Label layoutX="277.0" layoutY="33.0" prefHeight="57.0" prefWidth="400.0" text="Patients" textFill="#868ca1">
                <font>
-                  <Font name="Book Antiqua" size="23.0" />
+                  <Font name="Century" size="45.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#868ca1" glyphName="MEDKIT" />
+               </graphic>
             </Label>
-         </children></AnchorPane>
-      <AnchorPane fx:id="newsPane" layoutX="222.0" layoutY="446.0" prefHeight="222.0" prefWidth="758.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
-         <children>
-            <ImageView fx:id="newsImage2" fitHeight="131.0" fitWidth="234.0" layoutX="266.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/genes.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="newsImage1" fitHeight="136.0" fitWidth="266.0" layoutX="8.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/drug.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="newsImage3" fitHeight="131.0" fitWidth="240.0" layoutX="499.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/coat.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="14.0" layoutY="17.0" prefHeight="40.0" prefWidth="535.0" text="News from the world of medicine" textFill="#70768d">
+            <TableView layoutX="73.0" layoutY="107.0" prefHeight="404.0" prefWidth="684.0">
+              <columns>
+                <TableColumn prefWidth="85.0" text="Personal ID" />
+                <TableColumn prefWidth="106.0" text="First Name" />
+                  <TableColumn prefWidth="101.0" text="Last Name" />
+                  <TableColumn minWidth="8.0" prefWidth="69.0" text="Gender" />
+                  <TableColumn prefWidth="81.0" text="Age" />
+                  <TableColumn prefWidth="127.0" text="Chronic Diseases" />
+                  <TableColumn prefWidth="114.0" text="Email" />
+              </columns>
+            </TableView>
+            <Button layoutX="80.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="122.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Find Patient" textFill="WHITE">
                <font>
-                  <Font name="Book Antiqua" size="31.0" />
+                  <Font size="17.0" />
                </font>
-            </Label>
-         </children></AnchorPane>
-      <AnchorPane layoutX="661.0" layoutY="71.0" prefHeight="57.0" prefWidth="213.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
-         <children>
-            <Label fx:id="nameLabel" alignment="CENTER" layoutX="4.0" layoutY="2.0" prefHeight="50.0" prefWidth="206.0" text="00:00:00">
+            </Button>
+            <Button layoutX="327.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="122.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="New Patient" textFill="WHITE">
                <font>
-                  <Font name="Book Antiqua" size="32.0" />
+                  <Font size="17.0" />
                </font>
-            </Label>
+            </Button>
+            <Button layoutX="566.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="191.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="More informaiton" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

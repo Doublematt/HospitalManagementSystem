@@ -15,12 +15,15 @@
    <children>
       <AnchorPane fx:id="menuPane" layoutX="-12.0" layoutY="99.0" prefHeight="615.0" prefWidth="167.0" styleClass="menuPane" stylesheets="@CSSstyles/dashboardStyles.css">
          <children>
-            <Button layoutX="16.0" layoutY="94.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="medicaments" textFill="WHITE">
+            <Button fx:id="dashboardButton" layoutX="16.0" layoutY="94.0" mnemonicParsing="false" onAction="#changePane" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="dashboard" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="CLIPBOARD" />
+               </graphic>
             </Button>
-            <Button layoutX="16.0" layoutY="147.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Patients" textFill="WHITE">
+            <Button fx:id="patientsButton" layoutX="16.0" layoutY="147.0" mnemonicParsing="false" onAction="#changePane" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Patients" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
                </font>
@@ -69,6 +72,11 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="USER" size="20" />
                </graphic>
             </Button>
+            <Button layoutX="13.0" layoutY="433.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="medicaments" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
       <Circle fill="#eeeeee" layoutX="1030.0" layoutY="52.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
       <Button layoutX="989.0" layoutY="668.0" mnemonicParsing="false" onAction="#exit" text="EXIT">
@@ -76,7 +84,7 @@
             <FontAwesomeIconView glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="28.0" />
          </graphic>
       </Button>
-      <AnchorPane fx:id="dashboardPane" layoutX="155.0" layoutY="45.0" prefHeight="647.0" prefWidth="835.0" visible="false">
+      <AnchorPane fx:id="dashboardPane" layoutX="155.0" layoutY="45.0" prefHeight="647.0" prefWidth="835.0">
          <children>
             <AnchorPane layoutX="49.0" layoutY="164.0" prefHeight="222.0" prefWidth="344.0" styleClass="contentPane" stylesheets="@CSSstyles/dashboardStyles.css">
                <children>
@@ -136,7 +144,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="dashboardPane1" layoutX="165.0" layoutY="55.0" prefHeight="647.0" prefWidth="828.0">
+      <AnchorPane fx:id="patientPane" layoutX="165.0" layoutY="55.0" prefHeight="647.0" prefWidth="828.0" visible="false">
          <children>
             <Label layoutX="277.0" layoutY="33.0" prefHeight="57.0" prefWidth="400.0" text="Patients" textFill="#868ca1">
                <font>

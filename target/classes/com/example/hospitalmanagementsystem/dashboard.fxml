@@ -39,14 +39,6 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="STETHOSCOPE" size="18" />
                </graphic>
             </Button>
-            <Button layoutX="13.0" layoutY="268.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="OR" textFill="WHITE">
-               <font>
-                  <Font name="Book Antiqua" size="19.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="AMBULANCE" size="20" />
-               </graphic>
-            </Button>
             <Button layoutX="13.0" layoutY="329.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Beds" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
@@ -144,7 +136,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="patientPane" layoutX="165.0" layoutY="55.0" prefHeight="647.0" prefWidth="828.0">
+      <AnchorPane fx:id="patientPane" layoutX="165.0" layoutY="55.0" prefHeight="647.0" prefWidth="828.0" visible="false">
          <children>
             <Label layoutX="277.0" layoutY="33.0" prefHeight="57.0" prefWidth="400.0" text="Patients" textFill="#868ca1">
                <font>
@@ -176,6 +168,37 @@
                </font>
             </Button>
             <Button layoutX="566.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="191.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="More informaiton" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="StaffPane" layoutX="175.0" layoutY="65.0" prefHeight="647.0" prefWidth="828.0">
+         <children>
+            <Label alignment="CENTER" layoutX="3.0" layoutY="33.0" prefHeight="58.0" prefWidth="814.0" text="Staff" textFill="#868ca1">
+               <font>
+                  <Font name="Century" size="45.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#868ca1" glyphName="STETHOSCOPE" />
+               </graphic>
+            </Label>
+            <TableView fx:id="staffTable" layoutX="73.0" layoutY="107.0" prefHeight="404.0" prefWidth="684.0">
+               <columns>
+                  <TableColumn fx:id="personalIDColumn1" prefWidth="85.0" text="Staff ID" />
+                  <TableColumn fx:id="firstNameColumn1" prefWidth="157.60000610351562" text="First Name" />
+                  <TableColumn fx:id="lastNameColumn1" prefWidth="124.79998779296875" text="Last Name" />
+                  <TableColumn fx:id="genderColumn1" minWidth="8.0" prefWidth="125.60003662109375" text="Gender" />
+                  <TableColumn fx:id="ageColumn1" prefWidth="189.5999755859375" text="Occupation" />
+               </columns>
+            </TableView>
+            <Button layoutX="80.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="191.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Find Stuff member" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="474.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="243.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="More staff informaiton" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>

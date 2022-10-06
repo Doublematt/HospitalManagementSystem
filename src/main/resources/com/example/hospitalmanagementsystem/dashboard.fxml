@@ -31,7 +31,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="MEDKIT" size="20" />
                </graphic>
             </Button>
-            <Button layoutX="13.0" layoutY="208.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Staff" textFill="WHITE">
+            <Button fx:id="stuffButton" layoutX="13.0" layoutY="208.0" mnemonicParsing="false" onAction="#changePane" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Staff" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
                </font>
@@ -174,7 +174,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="StaffPane" layoutX="175.0" layoutY="65.0" prefHeight="647.0" prefWidth="828.0">
+      <AnchorPane fx:id="stuffPane" layoutX="175.0" layoutY="65.0" prefHeight="647.0" prefWidth="828.0">
          <children>
             <Label alignment="CENTER" layoutX="3.0" layoutY="33.0" prefHeight="58.0" prefWidth="814.0" text="Staff" textFill="#868ca1">
                <font>
@@ -184,13 +184,13 @@
                   <FontAwesomeIconView fill="#868ca1" glyphName="STETHOSCOPE" />
                </graphic>
             </Label>
-            <TableView fx:id="staffTable" layoutX="73.0" layoutY="107.0" prefHeight="404.0" prefWidth="684.0">
+            <TableView fx:id="stuffTable" layoutX="73.0" layoutY="107.0" prefHeight="404.0" prefWidth="684.0">
                <columns>
-                  <TableColumn fx:id="personalIDColumn1" prefWidth="85.0" text="Staff ID" />
-                  <TableColumn fx:id="firstNameColumn1" prefWidth="157.60000610351562" text="First Name" />
-                  <TableColumn fx:id="lastNameColumn1" prefWidth="124.79998779296875" text="Last Name" />
-                  <TableColumn fx:id="genderColumn1" minWidth="8.0" prefWidth="125.60003662109375" text="Gender" />
-                  <TableColumn fx:id="ageColumn1" prefWidth="189.5999755859375" text="Occupation" />
+                  <TableColumn fx:id="stuffIDcolumn" prefWidth="85.0" text="Staff ID" />
+                  <TableColumn fx:id="sfirstNameColumn" prefWidth="157.60000610351562" text="First Name" />
+                  <TableColumn fx:id="slastNameColumn" prefWidth="124.79998779296875" text="Last Name" />
+                  <TableColumn fx:id="sgenderColumn" minWidth="8.0" prefWidth="125.60003662109375" text="Gender" />
+                  <TableColumn fx:id="sOccupationColumn" prefWidth="189.5999755859375" text="Occupation" />
                </columns>
             </TableView>
             <Button layoutX="80.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="191.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Find Stuff member" textFill="WHITE">

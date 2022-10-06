@@ -2,7 +2,9 @@ package com.example.hospitalmanagementsystem.Controllers;
 
 
 import com.example.hospitalmanagementsystem.Database.PatientsConnection;
+import com.example.hospitalmanagementsystem.Database.StuffConnection;
 import com.example.hospitalmanagementsystem.Pojo.Patient;
+import com.example.hospitalmanagementsystem.Pojo.StuffMember;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -43,7 +45,10 @@ public class DashboardController  implements Initializable {
     private Button patientsButton;
 
     @FXML
-    private AnchorPane menuPane, rootPane, dashboardPane, patientPane;
+    private Button stuffButton;
+
+    @FXML
+    private AnchorPane menuPane, rootPane, dashboardPane, patientPane, stuffPane;
 
     @FXML
     private ImageView newsImage1;
@@ -63,6 +68,9 @@ public class DashboardController  implements Initializable {
 
     @FXML
     private TableView<Patient> patientsTable;
+
+    @FXML
+    private TableView<StuffMember> stuffTable;
 
     @FXML
     private TableColumn<Patient, Integer> personalIDColumn;
@@ -85,37 +93,35 @@ public class DashboardController  implements Initializable {
     @FXML
     private TableColumn<Patient, String> lastNameColumn;
 
+    @FXML
+    private TableColumn<StuffMember, Integer> stuffIDcolumn;
+
+    @FXML
+    private TableColumn<StuffMember, String> sfirstNameColumn;
+
+    @FXML
+    private TableColumn<StuffMember, String> slastNameColumn;
+
+    @FXML
+    private TableColumn<StuffMember, String> sgenderColumn;
+
+    @FXML
+    private TableColumn<StuffMember, String> sOccupationColumn;
+
 
     private PatientsConnection patientsConnection = new PatientsConnection();
+    private StuffConnection stuffConnection = new StuffConnection();
     public  Thread thread;
     private static boolean processing = true;
     private LinkedList<Patient> patientList;
     private ObservableList<Patient> patientObservableList;
+    private LinkedList<StuffMember> stuffList;
+    private ObservableList<StuffMember> stuffObservableList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        try {
-            patientList = patientsConnection.getAllPatients();
-            patientObservableList = FXCollections.observableArrayList();
-            patientObservableList.addAll(patientList);
-        }catch (Exception e){
-            System.out.println("list error: " + e.getMessage());
-        }
-
-        try {
-            patientsTable.setItems(patientObservableList);
-
-            personalIDColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("PersonalID"));
-            firstNameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstName"));
-            lastNameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastName"));
-            genderColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("gender"));
-            ageColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("age"));
-            emailColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
-            chDiseasesColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("chronicDiseases"));
-        }catch (Exception e){
-            System.out.println("Table creating exception " + e.getMessage());
-        }
+        getAllStudents();
+        getAllStuffMembers();
         getTime();
 
     }
@@ -153,26 +159,63 @@ public class DashboardController  implements Initializable {
         if(event.getSource() == dashboardButton){
             patientPane.setVisible(false);
             dashboardPane.setVisible(true);
+            stuffPane.setVisible(false);
+
         } else if (event.getSource() == patientsButton){
             patientPane.setVisible(true);
             dashboardPane.setVisible(false);
+            stuffPane.setVisible(false);
+        }else if (event.getSource() == stuffButton){
+            stuffPane.setVisible(true);
+            dashboardPane.setVisible(false);
+            patientPane.setVisible(false);
         }
     }
 
     public void getAllStudents (){
-        patientList = patientsConnection.getAllPatients();
-        patientObservableList = FXCollections.observableArrayList();
-        patientObservableList.addAll(patientList);
+        try {
+            patientList = patientsConnection.getAllPatients();
+            patientObservableList = FXCollections.observableArrayList();
+            patientObservableList.addAll(patientList);
+        }catch (Exception e){
+            System.out.println("list error: " + e.getMessage());
+        }
 
-        patientsTable.setItems(patientObservableList);
+        try {
+            patientsTable.setItems(patientObservableList);
 
-        personalIDColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("PersonalID"));
-        firstNameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstName"));
-        lastNameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastName"));
-        genderColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("gender"));
-        ageColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("age"));
-        emailColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
-        chDiseasesColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("chronicDiseases"));
+            personalIDColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("PersonalID"));
+            firstNameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstName"));
+            lastNameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastName"));
+            genderColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("gender"));
+            ageColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("age"));
+            emailColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
+            chDiseasesColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("chronicDiseases"));
+        }catch (Exception e){
+            System.out.println("Table creating exception " + e.getMessage());
+        }
+    }
 
+    public void getAllStuffMembers(){
+        try {
+            stuffList = stuffConnection.getAllStuffMembers();
+            stuffObservableList = FXCollections.observableArrayList();
+            stuffObservableList.addAll(stuffList);
+        }catch (Exception e){
+            System.out.println("list error: " + e.getMessage());
+        }
+
+        try {
+            stuffTable.setItems(stuffObservableList);
+
+            stuffIDcolumn.setCellValueFactory(new PropertyValueFactory<StuffMember, Integer>("stuffID"));
+            sfirstNameColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String >("firstName"));
+            slastNameColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String>("lastName"));
+            sgenderColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String>("gender"));
+            sOccupationColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String >("occupation"));
+
+        }catch (Exception e){
+            System.out.println("Stuff table creating exception " + e.getMessage());
+        }
     }
 }

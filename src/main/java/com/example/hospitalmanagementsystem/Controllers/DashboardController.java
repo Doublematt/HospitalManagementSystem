@@ -12,17 +12,18 @@ import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
 
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
+import javafx.stage.Stage;
 
 
 import java.awt.*;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 
@@ -30,10 +31,6 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
-
-import javafx.scene.control.Button;
-
-
 
 
 public class DashboardController  implements Initializable {
@@ -150,7 +147,17 @@ public class DashboardController  implements Initializable {
     }
 
     public void exit (){
-        stop();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Do you want to exit?");
+        alert.setContentText("Are you sure?");
+        alert.setHeaderText("");
+
+        if(alert.showAndWait().get() == ButtonType.OK){
+            stop();
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+            stage.close();
+        }
     }
 
 

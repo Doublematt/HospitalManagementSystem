@@ -94,7 +94,7 @@ public class UsersConnection {
             connection = DriverManager.getConnection(url,user , password);
             preparedStatement = connection.prepareStatement("Select * From users where userID = ?");
 
-            preparedStatement.setInt(1, ID);
+            preparedStatement.setInt(1, 1);
 
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
@@ -115,7 +115,7 @@ public class UsersConnection {
     }
 
     public Integer getUserID(String userLogin, String userPassword){
-            Integer ID = 0;
+            Integer ID = 1;
 
         try {
             connection = DriverManager.getConnection(url, user, password);

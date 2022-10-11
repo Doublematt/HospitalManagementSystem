@@ -57,7 +57,7 @@
                </graphic>
             </Button>
             <FontAwesomeIconView fill="WHITE" glyphName="H_SQUARE" layoutX="65.0" layoutY="72.0" size="50" text="" />
-            <Button layoutX="13.0" layoutY="528.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="account" textFill="WHITE">
+            <Button fx:id="accountButton" layoutX="13.0" layoutY="528.0" mnemonicParsing="false" onAction="#changePane" prefHeight="57.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="account" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
                </font>

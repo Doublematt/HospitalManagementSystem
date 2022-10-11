@@ -21,3 +21,8 @@
     -fx-background-color: #526bcd;
     -fx-cursor: hand;
 }
+
+.dashboardTextField{
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+}

@@ -46,10 +46,10 @@ public class DashboardController  implements Initializable {
     private Button patientsButton;
 
     @FXML
-    private Button stuffButton;
+    private Button stuffButton, accountButton;
 
     @FXML
-    private AnchorPane menuPane, rootPane, dashboardPane, patientPane, stuffPane;
+    private AnchorPane menuPane, rootPane, dashboardPane, patientPane, stuffPane, accountPane;
 
     @FXML
     private ImageView newsImage1;
@@ -110,21 +110,21 @@ public class DashboardController  implements Initializable {
     private TableColumn<StuffMember, String> sOccupationColumn;
 
     @FXML
-    private TextField userLoginField;
-    private TextField userPasswordField, userConfirmField, userFirstNameField, userLastNameField, userEmailField;
+    private TextField userLoginField, userPasswordField, userConfirmField, userFirstNameField, userLastNameField, userEmailField;;
 
 
 
     private UsersConnection usersConnection = new UsersConnection();
     private PatientsConnection patientsConnection = new PatientsConnection();
     private StuffConnection stuffConnection = new StuffConnection();
-    public  Thread thread;
+    public Thread thread;
     private static boolean processing = true;
     private LinkedList<Patient> patientList;
     private ObservableList<Patient> patientObservableList;
     private LinkedList<StuffMember> stuffList;
     private ObservableList<StuffMember> stuffObservableList;
-    private Integer ID = 0;
+    private Integer iD;
+
     private User user;
 
     @Override
@@ -136,37 +136,37 @@ public class DashboardController  implements Initializable {
 
     }
 
-    public void getTime (){
-            thread = new Thread(() -> {
-               SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-               while(processing){
-                   try {
-                       Thread.sleep(1000);
-                   }catch (Exception e){
-                       System.out.println(e.getMessage());
-                   }
-                   final String timenow = sdf.format(new Date());
-                   Platform.runLater(() -> {
-                       nameLabel.setText(timenow);
-                   });
-               }
-            });
-            thread.start();
-        }
+    public void getTime() {
+        thread = new Thread(() -> {
+            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+            while (processing) {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                final String timenow = sdf.format(new Date());
+                Platform.runLater(() -> {
+                    nameLabel.setText(timenow);
+                });
+            }
+        });
+        thread.start();
+    }
 
 
-    public static void stop(){
+    public static void stop() {
         processing = false;
     }
 
-    public void exit (){
+    public void exit() {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Do you want to exit?");
         alert.setContentText("Are you sure?");
         alert.setHeaderText("");
 
-        if(alert.showAndWait().get() == ButtonType.OK){
+        if (alert.showAndWait().get() == ButtonType.OK) {
             stop();
             Stage stage = (Stage) rootPane.getScene().getWindow();
             stage.close();
@@ -174,30 +174,39 @@ public class DashboardController  implements Initializable {
     }
 
 
-
     public void changePane(javafx.event.ActionEvent event) {
-        if(event.getSource() == dashboardButton){
+        if (event.getSource() == dashboardButton) {
             patientPane.setVisible(false);
             dashboardPane.setVisible(true);
             stuffPane.setVisible(false);
+            accountPane.setVisible(false);
 
-        } else if (event.getSource() == patientsButton){
+        } else if (event.getSource() == patientsButton) {
             patientPane.setVisible(true);
             dashboardPane.setVisible(false);
             stuffPane.setVisible(false);
-        }else if (event.getSource() == stuffButton){
+            accountPane.setVisible(false);
+
+        } else if (event.getSource() == stuffButton) {
             stuffPane.setVisible(true);
             dashboardPane.setVisible(false);
             patientPane.setVisible(false);
+            accountPane.setVisible(false);
+
+        } else if (event.getSource() == accountButton){
+            stuffPane.setVisible(false);
+            dashboardPane.setVisible(false);
+            patientPane.setVisible(false);
+            accountPane.setVisible(true);
         }
     }
 
-    public void getAllStudents (){
+    public void getAllStudents() {
         try {
             patientList = patientsConnection.getAllPatients();
             patientObservableList = FXCollections.observableArrayList();
             patientObservableList.addAll(patientList);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("list error: " + e.getMessage());
         }
 
@@ -211,17 +220,17 @@ public class DashboardController  implements Initializable {
             ageColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("age"));
             emailColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
             chDiseasesColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("chronicDiseases"));
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Table creating exception " + e.getMessage());
         }
     }
 
-    public void getAllStuffMembers(){
+    public void getAllStuffMembers() {
         try {
             stuffList = stuffConnection.getAllStuffMembers();
             stuffObservableList = FXCollections.observableArrayList();
             stuffObservableList.addAll(stuffList);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("list error: " + e.getMessage());
         }
 
@@ -229,27 +238,32 @@ public class DashboardController  implements Initializable {
             stuffTable.setItems(stuffObservableList);
 
             stuffIDcolumn.setCellValueFactory(new PropertyValueFactory<StuffMember, Integer>("stuffID"));
-            sfirstNameColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String >("firstName"));
+            sfirstNameColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String>("firstName"));
             slastNameColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String>("lastName"));
             sgenderColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String>("gender"));
-            sOccupationColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String >("occupation"));
+            sOccupationColumn.setCellValueFactory(new PropertyValueFactory<StuffMember, String>("occupation"));
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Stuff table creating exception " + e.getMessage());
         }
     }
 
-    public void setAccountInformation (){
-        user = usersConnection.getUserByID(ID);
+    public void setAccountInformation() {
 
-        userLoginField.setText(user.getLogin());
-        userPasswordField.setText(user.getPassword());
-        userEmailField.setText(user.getEmail());
-        userFirstNameField.setText(user.getFirstName());
-        userLastNameField.setText(user.getLastName());
+        user = usersConnection.getUserByID(1);
+        try {
+            userLoginField.setText(user.getLogin());
+            userPasswordField.setText(user.getPassword());
+            userEmailField.setText(user.getEmail());
+            userFirstNameField.setText(user.getFirstName());
+            userLastNameField.setText(user.getLastName());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setiD(Integer iD) {
+        this.iD = iD;
     }
 }
+

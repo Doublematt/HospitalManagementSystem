@@ -190,7 +190,8 @@ public class LoginController {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(loader.load());
             DashboardController dashboardController = new DashboardController();
-            dashboardController.setID(connection.getUserID(logLoginField.getText(), logPasswordField.getText()));
+            System.out.println("usersID = " + connection.getUserID(logLoginField.getText(), logPasswordField.getText()));
+            dashboardController.setiD(connection.getUserID(logLoginField.getText(), logPasswordField.getText()));
 
             stage.setScene(scene);
             stage.show();

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -174,7 +175,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="stuffPane" layoutX="175.0" layoutY="65.0" prefHeight="647.0" prefWidth="828.0">
+      <AnchorPane fx:id="stuffPane" layoutX="175.0" layoutY="65.0" prefHeight="647.0" prefWidth="828.0" visible="false">
          <children>
             <Label alignment="CENTER" layoutX="3.0" layoutY="33.0" prefHeight="58.0" prefWidth="814.0" text="Staff" textFill="#868ca1">
                <font>
@@ -201,6 +202,59 @@
             <Button layoutX="474.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="243.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="More staff informaiton" textFill="WHITE">
                <font>
                   <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="stuffPane1" layoutX="185.0" layoutY="75.0" prefHeight="647.0" prefWidth="828.0">
+         <children>
+            <Label alignment="CENTER" layoutX="3.0" layoutY="33.0" prefHeight="58.0" prefWidth="814.0" text="Account" textFill="#868ca1">
+               <font>
+                  <Font name="Century" size="45.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#868ca1" glyphName="USER" />
+               </graphic>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="134.0" layoutY="192.0" prefHeight="30.0" prefWidth="109.0" text="Login" textFill="#5d86d3">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="102.0" layoutY="245.0" prefHeight="30.0" prefWidth="141.0" text="Password" textFill="#5d86d3">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="441.0" prefHeight="30.0" prefWidth="167.0" text="email adress" textFill="#5d86d3">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="343.0" prefHeight="30.0" prefWidth="167.0" text="First Name" textFill="#5d86d3">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="392.0" prefHeight="30.0" prefWidth="167.0" text="Last Name" textFill="#5d86d3">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="294.0" prefHeight="30.0" prefWidth="223.0" text="Confirm password" textFill="#5d86d3">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userLoginField" layoutX="268.0" layoutY="192.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
+            <TextField fx:id="userPasswordField" layoutX="268.0" layoutY="245.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
+            <TextField fx:id="userConfirmField" layoutX="268.0" layoutY="294.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
+            <TextField fx:id="userFirstNameField" layoutX="268.0" layoutY="343.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
+            <TextField fx:id="userLastNameField" layoutX="268.0" layoutY="392.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
+            <TextField fx:id="userEmailField" layoutX="268.0" layoutY="441.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
+            <Button layoutX="308.0" layoutY="513.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="Century" size="19.0" />
                </font>
             </Button>
          </children>

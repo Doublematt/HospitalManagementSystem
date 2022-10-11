@@ -3,8 +3,10 @@ package com.example.hospitalmanagementsystem.Controllers;
 
 import com.example.hospitalmanagementsystem.Database.PatientsConnection;
 import com.example.hospitalmanagementsystem.Database.StuffConnection;
+import com.example.hospitalmanagementsystem.Database.UsersConnection;
 import com.example.hospitalmanagementsystem.Pojo.Patient;
 import com.example.hospitalmanagementsystem.Pojo.StuffMember;
+import com.example.hospitalmanagementsystem.Pojo.User;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -34,6 +37,7 @@ import java.util.concurrent.ExecutionException;
 
 
 public class DashboardController  implements Initializable {
+
 
     @FXML
     private Button dashboardButton;
@@ -105,7 +109,13 @@ public class DashboardController  implements Initializable {
     @FXML
     private TableColumn<StuffMember, String> sOccupationColumn;
 
+    @FXML
+    private TextField userLoginField;
+    private TextField userPasswordField, userConfirmField, userFirstNameField, userLastNameField, userEmailField;
 
+
+
+    private UsersConnection usersConnection = new UsersConnection();
     private PatientsConnection patientsConnection = new PatientsConnection();
     private StuffConnection stuffConnection = new StuffConnection();
     public  Thread thread;
@@ -114,12 +124,15 @@ public class DashboardController  implements Initializable {
     private ObservableList<Patient> patientObservableList;
     private LinkedList<StuffMember> stuffList;
     private ObservableList<StuffMember> stuffObservableList;
+    private Integer ID = 0;
+    private User user;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAllStudents();
         getAllStuffMembers();
         getTime();
+        setAccountInformation();
 
     }
 
@@ -224,5 +237,19 @@ public class DashboardController  implements Initializable {
         }catch (Exception e){
             System.out.println("Stuff table creating exception " + e.getMessage());
         }
+    }
+
+    public void setAccountInformation (){
+        user = usersConnection.getUserByID(ID);
+
+        userLoginField.setText(user.getLogin());
+        userPasswordField.setText(user.getPassword());
+        userEmailField.setText(user.getEmail());
+        userFirstNameField.setText(user.getFirstName());
+        userLastNameField.setText(user.getLastName());
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 }

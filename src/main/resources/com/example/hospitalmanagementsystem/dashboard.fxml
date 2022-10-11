@@ -206,7 +206,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="stuffPane1" layoutX="185.0" layoutY="75.0" prefHeight="647.0" prefWidth="828.0">
+      <AnchorPane fx:id="accountPane" layoutX="185.0" layoutY="75.0" prefHeight="647.0" prefWidth="828.0">
          <children>
             <Label alignment="CENTER" layoutX="3.0" layoutY="33.0" prefHeight="58.0" prefWidth="814.0" text="Account" textFill="#868ca1">
                <font>
@@ -246,7 +246,7 @@
                   <Font name="Century" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="userLoginField" layoutX="268.0" layoutY="192.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
+            <TextField fx:id="userLoginField" layoutX="268.0" layoutY="192.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" text="notNulll" />
             <TextField fx:id="userPasswordField" layoutX="268.0" layoutY="245.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
             <TextField fx:id="userConfirmField" layoutX="268.0" layoutY="294.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />
             <TextField fx:id="userFirstNameField" layoutX="268.0" layoutY="343.0" prefHeight="30.0" prefWidth="183.0" styleClass="dashboardTextField" stylesheets="@CSSstyles/dashboardStyles.css" />

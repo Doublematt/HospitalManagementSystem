@@ -30,7 +30,7 @@ public class Main extends Application {
 
     /*
         Function to exit the application when alt + F4 is pressed
-        Creates alert to make sure the user wants to close app
+        Creates alert to make sure the User wants to close app
         Exits the app
      */
     public void exit(Stage stage){

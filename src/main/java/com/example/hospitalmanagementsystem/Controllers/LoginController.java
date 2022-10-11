@@ -126,7 +126,7 @@ public class LoginController {
         }
     }
     /*
-        contains database connection method which returns hashMap of user's logins and passwords
+        contains database connection method which returns hashMap of User's logins and passwords
         first is not empty check
         second check proves that key - login equals to value - password
         for now there is only print, It will change after adding new fxml file.
@@ -139,7 +139,7 @@ public class LoginController {
             System.out.println("one field is empty!");
 
         }else if (usersMap.get(logLoginField.getText()).equals(logPasswordField.getText())) {
-                // log user in
+                // log User in
                 changeFXML(e);
                 System.out.println("logging in");
 
@@ -148,12 +148,12 @@ public class LoginController {
         }
     }
 
-    //need to add some validation to user
-    // possibly create new user pojo class,  may be useful
+    //need to add some validation to User
+    // possibly create new User pojo class,  may be useful
     /*
-        array of user data is temporary answer, need to  find something better
+        array of User data is temporary answer, need to  find something better
         validation check only if fields are not empty
-        only if they are not empty if adds new user to database
+        only if they are not empty if adds new User to database
      */
     public void registerNewUser (){
 
@@ -189,6 +189,9 @@ public class LoginController {
             loader = new FXMLLoader(Main.class.getResource("dashboard.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(loader.load());
+            DashboardController dashboardController = new DashboardController();
+            dashboardController.setID(connection.getUserID(logLoginField.getText(), logPasswordField.getText()));
+
             stage.setScene(scene);
             stage.show();
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();

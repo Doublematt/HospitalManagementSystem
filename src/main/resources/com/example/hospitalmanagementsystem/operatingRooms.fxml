@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="476.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.OperatingRooms">
+   <children>
+      <AnchorPane layoutX="-5.0" layoutY="-5.0" prefHeight="104.0" prefWidth="769.0" styleClass="titlePane" stylesheets="@CSSstyles/OR.css">
+         <children>
+            <Label alignment="CENTER" layoutX="5.0" layoutY="44.0" prefHeight="33.0" prefWidth="749.0" text="Operating Room -  reservations" textFill="#3c239e">
+               <font>
+                  <Font name="Century" size="26.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#eee4e4" glyphName="AMBULANCE" />
+               </graphic>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="roomsPane" layoutY="96.0" prefHeight="381.0" prefWidth="749.0" visible="false">
+         <children>
+            <Label layoutX="103.0" layoutY="93.0" text="Room No. 1" textFill="#3c239e">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="442.0" layoutY="93.0" text="Room No. 2" textFill="#3c239e">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="35.0" layoutY="147.0" prefHeight="147.0" prefWidth="263.0" styleClass="roomPane" stylesheets="@CSSstyles/OR.css">
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="BED" layoutX="27.0" layoutY="63.0" size="40" />
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="34.0" prefHeight="30.0" prefWidth="230.0" text="Status" textAlignment="CENTER" textFill="#3c239e">
+                     <font>
+                        <Font name="Century" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="room1Free" alignment="CENTER" layoutY="89.0" prefHeight="30.0" prefWidth="263.0" text="Available" textFill="#7860d7">
+                     <font>
+                        <Font name="Century" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="room1Taken" alignment="CENTER" layoutX="17.0" layoutY="79.0" prefHeight="49.0" prefWidth="230.0" text="Ongoing Operation" textFill="#eb1c11" visible="false">
+                     <font>
+                        <Font name="Century" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="374.0" layoutY="147.0" prefHeight="147.0" prefWidth="263.0" styleClass="roomPane" stylesheets="@CSSstyles/OR.css">
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="BED" layoutX="27.0" layoutY="63.0" size="40" />
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="34.0" prefHeight="30.0" prefWidth="230.0" text="Status" textAlignment="CENTER" textFill="#3c239e">
+                     <font>
+                        <Font name="Century" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="room2Free" alignment="CENTER" layoutY="89.0" prefHeight="30.0" prefWidth="263.0" text="Available" textFill="#7860d7">
+                     <font>
+                        <Font name="Century" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="room2Taken" alignment="CENTER" layoutX="17.0" layoutY="79.0" prefHeight="49.0" prefWidth="230.0" text="Ongoing Operation" textFill="#eb1c11" visible="false">
+                     <font>
+                        <Font name="Century" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="room1ReservationPane" layoutX="5.0" layoutY="99.0" prefHeight="381.0" prefWidth="749.0">
+         <children>
+            <DatePicker fx:id="room1Date" layoutX="281.0" layoutY="117.0" prefHeight="25.0" prefWidth="188.0" />
+            <Button layoutX="486.0" layoutY="288.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="212.0" styleClass="redButton" stylesheets="@CSSstyles/OR.css" text="Operating Now!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="223.0" layoutY="32.0" prefHeight="33.0" prefWidth="272.0" text="Set operation time" textFill="#3c239e">
+               <font>
+                  <Font name="Century" size="26.0" />
+               </font>
+            </Label>
+            <Button layoutX="287.0" layoutY="291.0" mnemonicParsing="false" styleClass="roomButton" stylesheets="@CSSstyles/OR.css" text="set operation" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="57.0" layoutY="292.0" mnemonicParsing="false" styleClass="roomButton" stylesheets="@CSSstyles/OR.css" text="set current time" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Label layoutX="352.0" layoutY="83.0" prefHeight="23.0" prefWidth="46.0" text="Date">
+               <font>
+                  <Font name="Century" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="352.0" layoutY="158.0" prefHeight="23.0" prefWidth="46.0" text="Time">
+               <font>
+                  <Font name="Century" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="room1Time" alignment="CENTER" layoutX="278.0" layoutY="191.0" prefHeight="33.0" prefWidth="188.0" promptText="hour : minutes">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="room2ReservationPane" layoutX="10.0" layoutY="102.0" prefHeight="381.0" prefWidth="749.0" visible="false">
+         <children>
+            <DatePicker fx:id="room2Date" layoutX="281.0" layoutY="117.0" prefHeight="25.0" prefWidth="188.0" />
+            <Button layoutX="486.0" layoutY="288.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="212.0" styleClass="redButton" stylesheets="@CSSstyles/OR.css" text="Operating Now!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="223.0" layoutY="32.0" prefHeight="33.0" prefWidth="272.0" text="Set operation time" textFill="#3c239e">
+               <font>
+                  <Font name="Century" size="26.0" />
+               </font>
+            </Label>
+            <Button layoutX="287.0" layoutY="291.0" mnemonicParsing="false" styleClass="roomButton" stylesheets="@CSSstyles/OR.css" text="set operation" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="57.0" layoutY="292.0" mnemonicParsing="false" styleClass="roomButton" stylesheets="@CSSstyles/OR.css" text="set current time" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Label layoutX="352.0" layoutY="83.0" prefHeight="23.0" prefWidth="46.0" text="Date">
+               <font>
+                  <Font name="Century" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="352.0" layoutY="158.0" prefHeight="23.0" prefWidth="46.0" text="Time">
+               <font>
+                  <Font name="Century" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="room2Time" alignment="CENTER" layoutX="278.0" layoutY="191.0" prefHeight="33.0" prefWidth="188.0" promptText="hour : minutes">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

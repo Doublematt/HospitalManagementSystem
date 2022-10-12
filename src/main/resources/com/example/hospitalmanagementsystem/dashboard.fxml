@@ -40,7 +40,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="STETHOSCOPE" size="18" />
                </graphic>
             </Button>
-            <Button layoutX="13.0" layoutY="329.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Beds" textFill="WHITE">
+            <Button layoutX="13.0" layoutY="329.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="OR" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
                </font>

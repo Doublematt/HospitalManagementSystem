@@ -1,0 +1,33 @@
+.titlePane {
+    -fx-background-color:#a6b0cd;
+}
+
+.roomPane {
+    -fx-background-color: #eee4e4;
+
+}
+
+.roomPane:hover {
+    -fx-cursor:hand;
+    -fx-background-color: #a6b0cd;
+}
+
+.roomButton {
+    -fx-background-color: transparent;
+}
+
+.redButton {
+    -fx-background-color:#fc0f0f;
+}
+.redButton:hover{
+    -fx-background-color:#ff3939;
+    -fx-cursor:hand;
+}
+
+.roomButton {
+    -fx-background-color:#a6b0cd;
+}
+.roomButton:hover{
+    -fx-background-color:#aeccd3;
+    -fx-cursor:hand;
+}

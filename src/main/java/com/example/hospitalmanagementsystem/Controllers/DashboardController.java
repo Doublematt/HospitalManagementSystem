@@ -4,16 +4,22 @@ package com.example.hospitalmanagementsystem.Controllers;
 import com.example.hospitalmanagementsystem.Database.PatientsConnection;
 import com.example.hospitalmanagementsystem.Database.StuffConnection;
 import com.example.hospitalmanagementsystem.Database.UsersConnection;
+import com.example.hospitalmanagementsystem.Main;
 import com.example.hospitalmanagementsystem.Pojo.Patient;
 import com.example.hospitalmanagementsystem.Pojo.StuffMember;
 import com.example.hospitalmanagementsystem.Pojo.User;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,12 +27,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
 import java.awt.*;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 
@@ -123,7 +129,7 @@ public class DashboardController  implements Initializable {
     private ObservableList<Patient> patientObservableList;
     private LinkedList<StuffMember> stuffList;
     private ObservableList<StuffMember> stuffObservableList;
-    private Integer iD;
+    private static Integer ID =1;
 
     private User user;
 
@@ -250,7 +256,7 @@ public class DashboardController  implements Initializable {
 
     public void setAccountInformation() {
 
-        user = usersConnection.getUserByID(1);
+        user = usersConnection.getUserByID(this.ID);
         try {
             userLoginField.setText(user.getLogin());
             userPasswordField.setText(user.getPassword());
@@ -263,7 +269,32 @@ public class DashboardController  implements Initializable {
     }
 
     public void setiD(Integer iD) {
-        this.iD = iD;
+        this.ID = iD;
     }
+
+    public void changeToOR (){
+
+        FXMLLoader loader;
+        Stage stage;
+        Scene scene;
+
+        try{
+            loader = new FXMLLoader(Main.class.getResource("operatingRooms.fxml"));
+            stage = (Stage) rootPane.getScene().getWindow();
+            scene = new Scene(loader.load());
+
+            stage.setScene(scene);
+            stage.show();
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+            stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+
+        }catch (Exception e){
+            System.out.println("Load new fxml error: " + e.getMessage());
+        }
+
+
+    }
+
 }
 

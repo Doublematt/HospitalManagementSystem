@@ -65,16 +65,18 @@ public class LoginController {
     private PasswordField regPasswordField;
 
     @FXML
-    private TextField logLoginField;
+    public TextField logLoginField;
 
     @FXML
-    private PasswordField logPasswordField;
+    public PasswordField logPasswordField;
 
     //no FXML variable
     private Alert alert;
     private Stage stage;
     private UsersConnection connection = new UsersConnection();
     private HashMap<String, String> usersMap = new HashMap<>();
+
+
 
     /*
     Function to change between login and register

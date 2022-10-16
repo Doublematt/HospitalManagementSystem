@@ -47,9 +47,12 @@ public class PatientsConnection {
     }
 
     public LinkedList<Patient> getPatients( String firstName, String lastName, String gender,
-                                           Integer age, String chronicDiseases, String email){
+                                           String age, String chronicDiseases, String email){
+
         LinkedList<Patient> patientLinkedList = new LinkedList<>();
         Patient patient;
+
+
 
         Connection connection;
         Statement statement;
@@ -82,7 +85,7 @@ public class PatientsConnection {
     }
 
     public String createQuestion ( String firstName, String lastName, String gender,
-                                   Integer age, String chronicDiseases, String email){
+                                   String age, String chronicDiseases, String email){
         String question = "";
 
         if (!firstName.equals("")){
@@ -100,6 +103,9 @@ public class PatientsConnection {
 
         if(question.startsWith(" and"))
             question = question.substring(4);
+
+        System.out.println("question: " + question);
+
         return question;
     }
 

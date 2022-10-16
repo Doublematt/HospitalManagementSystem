@@ -158,7 +158,7 @@
                   <TableColumn fx:id="emailColumn" prefWidth="114.0" text="Email" />
               </columns>
             </TableView>
-            <Button layoutX="80.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="122.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Find Patient" textFill="WHITE">
+            <Button layoutX="80.0" layoutY="541.0" mnemonicParsing="false" onAction="#changeToPatients" prefHeight="40.0" prefWidth="122.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Find Patient" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>

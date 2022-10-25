@@ -118,6 +118,8 @@ public class DashboardController  implements Initializable {
     @FXML
     private TextField userLoginField, userPasswordField, userConfirmField, userFirstNameField, userLastNameField, userEmailField;;
 
+    @FXML
+    private Button findPatientButton, newPatientButton;
 
 
     private UsersConnection usersConnection = new UsersConnection();
@@ -256,7 +258,7 @@ public class DashboardController  implements Initializable {
 
     public void setAccountInformation() {
 
-        user = usersConnection.getUserByID(this.ID);
+        user = usersConnection.getUserByID(ID);
         try {
             userLoginField.setText(user.getLogin());
             userPasswordField.setText(user.getPassword());
@@ -269,7 +271,7 @@ public class DashboardController  implements Initializable {
     }
 
     public void setiD(Integer iD) {
-        this.ID = iD;
+        ID = iD;
     }
 
     public void changeToOR (){
@@ -296,7 +298,7 @@ public class DashboardController  implements Initializable {
 
     }
 
-    public void changeToPatients(){
+    public void changeToPatients(ActionEvent event){
         FXMLLoader loader;
         Stage stage;
         Scene scene;
@@ -305,7 +307,6 @@ public class DashboardController  implements Initializable {
             loader = new FXMLLoader(Main.class.getResource("patient.fxml"));
             stage = (Stage) rootPane.getScene().getWindow();
             scene = new Scene(loader.load());
-
             stage.setScene(scene);
             stage.show();
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -317,6 +318,27 @@ public class DashboardController  implements Initializable {
         }
 
     }
+    public void changeToAddPatient(ActionEvent event){
+        FXMLLoader loader;
+        Stage stage;
+        Scene scene;
+
+        try{
+            loader = new FXMLLoader(Main.class.getResource("addPatient.fxml"));
+            stage = (Stage) rootPane.getScene().getWindow();
+            scene = new Scene(loader.load());
+            stage.setScene(scene);
+            stage.show();
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+            stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+
+        }catch (Exception e){
+            System.out.println("Load new fxml error: " + e.getMessage());
+        }
+
+    }
+
 
 }
 

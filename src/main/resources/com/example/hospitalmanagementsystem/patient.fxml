@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="673.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.PatientController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="605.0" prefWidth="921.0">
+      <AnchorPane fx:id="findPatientPane" layoutX="10.0" layoutY="10.0" prefHeight="605.0" prefWidth="921.0">
          <children>
             <TableView fx:id="patientsTable" layoutX="213.0" layoutY="123.0" prefHeight="404.0" prefWidth="693.0">
                <columns>
@@ -42,6 +43,29 @@
                   <Font size="25.0" />
                </font>
             </Label>
+         </children>
+      </AnchorPane>
+      <Button alignment="CENTER" layoutX="942.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeFXML" prefHeight="26.0" prefWidth="30.0">
+         <graphic>
+            <FontAwesomeIconView glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="23.999999999999943" />
+         </graphic></Button>
+      <AnchorPane fx:id="addPatientPane" layoutX="20.0" layoutY="20.0" prefHeight="605.0" prefWidth="921.0" visible="false">
+         <children>
+            <Label layoutX="334.0" layoutY="40.0" prefHeight="34.0" prefWidth="250.0" text="add new Patient">
+               <font>
+                  <Font name="Century" size="26.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="USER_PLUS" />
+               </graphic>
+            </Label>
+            <TextField layoutX="386.0" layoutY="119.0" promptText="first Name" />
+            <TextField layoutX="386.0" layoutY="168.0" promptText="last Name" />
+            <TextField layoutX="386.0" layoutY="218.0" promptText="gender" />
+            <TextField layoutX="421.0" layoutY="276.0" prefHeight="26.0" prefWidth="78.0" promptText="age" />
+            <TextField layoutX="385.0" layoutY="333.0" promptText="email" />
+            <TextArea layoutX="343.0" layoutY="399.0" prefHeight="115.0" prefWidth="236.0" promptText="chronic diseases" />
+            <Button layoutX="435.0" layoutY="536.0" mnemonicParsing="false" text="submit" />
          </children>
       </AnchorPane>
    </children>

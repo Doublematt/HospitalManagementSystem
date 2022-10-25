@@ -109,5 +109,34 @@ public class PatientsConnection {
         return question;
     }
 
+    public LinkedList<Patient> getPatientByID (Integer ID){
+        Connection connection;
+        Statement statement;
+        ResultSet resultSet;
+        LinkedList<Patient> patientLinkedList = new LinkedList<Patient>();
+        Patient patient = new Patient();
+
+        try{
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM patients where personalID = " + ID);
+
+            while(resultSet.next()){
+                patient = new Patient(ID,
+                        resultSet.getString("firstName"),
+                        resultSet.getString("lastName"),
+                        resultSet.getString("gender"),
+                        resultSet.getInt("age"),
+                        resultSet.getString("chDiseases"),
+                        resultSet.getString("email"));
+                patientLinkedList.add(patient);
+            }
+
+        }catch (Exception e){
+            System.out.println("getPatientByID error: " + e.getMessage());
+        }
+        return patientLinkedList;
+    }
+
 
 }

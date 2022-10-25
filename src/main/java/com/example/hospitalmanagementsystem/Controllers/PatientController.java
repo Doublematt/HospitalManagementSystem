@@ -89,6 +89,16 @@ public class PatientController implements Initializable {
         if(!personalIDField.getText().equals("")){
             //implement getPatient by ID
             System.out.println("by ID");
+            Integer ID = 0;
+            try {
+                ID = Integer.parseInt(personalIDField.getText());
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+
+            patientList = patientsConnection.getPatientByID(ID);
+
+            patientObservableList.addAll(patientList);
 
         }else if(checkNoEmpty(fields)){
             patientList = patientsConnection.getAllPatients();

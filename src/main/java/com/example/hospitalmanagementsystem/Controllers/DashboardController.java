@@ -256,7 +256,7 @@ public class DashboardController  implements Initializable {
 
     public void setAccountInformation() {
 
-        user = usersConnection.getUserByID(this.ID);
+        user = usersConnection.getUserByID(ID);
         try {
             userLoginField.setText(user.getLogin());
             userPasswordField.setText(user.getPassword());
@@ -269,7 +269,7 @@ public class DashboardController  implements Initializable {
     }
 
     public void setiD(Integer iD) {
-        this.ID = iD;
+        ID = iD;
     }
 
     public void changeToOR (){

@@ -19,6 +19,9 @@ public class Patient {
         this.chronicDiseases = chronicDiseases;
         this.email = email;
     }
+    public Patient(){
+
+    }
 
     public Integer getPersonalID() {
         return PersonalID;

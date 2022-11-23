@@ -52,10 +52,10 @@ public class DashboardController  implements Initializable {
     private Button patientsButton;
 
     @FXML
-    private Button stuffButton, accountButton;
+    private Button stuffButton, accountButton, analysisButton, medicamentsButton;
 
     @FXML
-    private AnchorPane menuPane, rootPane, dashboardPane, patientPane, stuffPane, accountPane;
+    private AnchorPane menuPane, rootPane, dashboardPane, patientPane, stuffPane, accountPane, analysisPane, medicamentsPane;
 
     @FXML
     private ImageView newsImage1;
@@ -188,24 +188,48 @@ public class DashboardController  implements Initializable {
             dashboardPane.setVisible(true);
             stuffPane.setVisible(false);
             accountPane.setVisible(false);
+            analysisPane.setVisible(false);
+            medicamentsPane.setVisible(false);
 
         } else if (event.getSource() == patientsButton) {
             patientPane.setVisible(true);
             dashboardPane.setVisible(false);
             stuffPane.setVisible(false);
             accountPane.setVisible(false);
+            analysisPane.setVisible(false);
+            medicamentsPane.setVisible(false);
 
         } else if (event.getSource() == stuffButton) {
             stuffPane.setVisible(true);
             dashboardPane.setVisible(false);
             patientPane.setVisible(false);
             accountPane.setVisible(false);
+            analysisPane.setVisible(false);
+            medicamentsPane.setVisible(false);
 
         } else if (event.getSource() == accountButton){
             stuffPane.setVisible(false);
             dashboardPane.setVisible(false);
             patientPane.setVisible(false);
             accountPane.setVisible(true);
+            analysisPane.setVisible(false);
+            medicamentsPane.setVisible(false);
+
+        } else if(event.getSource() == analysisButton){
+            stuffPane.setVisible(false);
+            dashboardPane.setVisible(false);
+            patientPane.setVisible(false);
+            accountPane.setVisible(false);
+            analysisPane.setVisible(true);
+            medicamentsPane.setVisible(false);
+
+        } else if(event.getSource() == medicamentsButton){
+            stuffPane.setVisible(false);
+            dashboardPane.setVisible(false);
+            patientPane.setVisible(false);
+            accountPane.setVisible(false);
+            analysisPane.setVisible(false);
+            medicamentsPane.setVisible(true);
         }
     }
 
@@ -338,6 +362,7 @@ public class DashboardController  implements Initializable {
         }
 
     }
+
 
 
 }

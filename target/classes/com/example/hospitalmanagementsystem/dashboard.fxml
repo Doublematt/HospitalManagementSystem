@@ -9,13 +9,20 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="712.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
+<AnchorPane fx:id="rootPane" prefHeight="712.0" prefWidth="1087.0" styleClass="rootPane" stylesheets="@CSSstyles/dashboardStyles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
    <children>
       <AnchorPane fx:id="menuPane" layoutX="-12.0" layoutY="99.0" prefHeight="615.0" prefWidth="167.0" styleClass="menuPane" stylesheets="@CSSstyles/dashboardStyles.css">
          <children>
+            <Button fx:id="analysisButton" layoutX="13.0" layoutY="385.0" mnemonicParsing="false" onAction="#changePane" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Analysis" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="LINE_CHART" size="20" />
+               </graphic>
+            </Button>
             <Button fx:id="dashboardButton" layoutX="16.0" layoutY="94.0" mnemonicParsing="false" onAction="#changePane" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="dashboard" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
@@ -48,14 +55,6 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="BED" size="20" />
                </graphic>
             </Button>
-            <Button layoutX="13.0" layoutY="385.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="Analysis" textFill="WHITE">
-               <font>
-                  <Font name="Book Antiqua" size="19.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="LINE_CHART" size="20" />
-               </graphic>
-            </Button>
             <FontAwesomeIconView fill="WHITE" glyphName="H_SQUARE" layoutX="65.0" layoutY="72.0" size="50" text="" />
             <Button fx:id="accountButton" layoutX="13.0" layoutY="528.0" mnemonicParsing="false" onAction="#changePane" prefHeight="57.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="account" textFill="WHITE">
                <font>
@@ -65,13 +64,12 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="USER" size="20" />
                </graphic>
             </Button>
-            <Button layoutX="13.0" layoutY="433.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="medicaments" textFill="WHITE">
+            <Button fx:id="medicamentsButton" layoutX="13.0" layoutY="433.0" mnemonicParsing="false" onAction="#changePane" prefHeight="40.0" prefWidth="141.0" styleClass="menuButton" stylesheets="@CSSstyles/dashboardStyles.css" text="medicaments" textFill="WHITE">
                <font>
                   <Font name="Book Antiqua" size="19.0" />
                </font>
             </Button>
          </children></AnchorPane>
-      <Circle fill="#eeeeee" layoutX="1030.0" layoutY="52.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
       <Button layoutX="989.0" layoutY="668.0" mnemonicParsing="false" onAction="#exit" text="EXIT">
          <graphic>
             <FontAwesomeIconView glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="28.0" />
@@ -137,7 +135,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="patientPane" layoutX="165.0" layoutY="55.0" prefHeight="647.0" prefWidth="828.0">
+      <AnchorPane fx:id="patientPane" layoutX="165.0" layoutY="55.0" prefHeight="647.0" prefWidth="828.0" visible="false">
          <children>
             <Label layoutX="277.0" layoutY="33.0" prefHeight="57.0" prefWidth="400.0" text="Patients" textFill="#868ca1">
                <font>
@@ -259,5 +257,30 @@
             </Button>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="analysisPane" layoutX="162.0" layoutY="55.0" prefHeight="647.0" prefWidth="835.0" visible="false">
+         <children>
+            <Label alignment="CENTER" layoutX="-2.0" layoutY="215.0" prefHeight="46.0" prefWidth="842.0" text="Page not developed yet" textAlignment="CENTER">
+               <font>
+                  <Font name="Century" size="36.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView glyphName="WRENCH" layoutX="396.0" layoutY="317.0" size="40" wrappingWidth="48.85714340209961" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="medicamentsPane" layoutX="172.0" layoutY="65.0" prefHeight="647.0" prefWidth="835.0">
+         <children>
+            <Label alignment="CENTER" layoutX="1.0" layoutY="206.0" prefHeight="46.0" prefWidth="835.0" text="Page not developed yet">
+               <font>
+                  <Font name="Century" size="36.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView glyphName="WRENCH" layoutX="394.0" layoutY="317.0" size="40" wrappingWidth="48.85714340209961" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="94.0" fitWidth="122.0" layoutX="952.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -9,10 +9,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="712.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
+<AnchorPane fx:id="rootPane" prefHeight="712.0" prefWidth="1087.0" styleClass="rootPane" stylesheets="@CSSstyles/dashboardStyles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospitalmanagementsystem.Controllers.DashboardController">
    <children>
       <AnchorPane fx:id="menuPane" layoutX="-12.0" layoutY="99.0" prefHeight="615.0" prefWidth="167.0" styleClass="menuPane" stylesheets="@CSSstyles/dashboardStyles.css">
          <children>
@@ -71,7 +70,6 @@
                </font>
             </Button>
          </children></AnchorPane>
-      <Circle fill="#eeeeee" layoutX="1030.0" layoutY="52.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
       <Button layoutX="989.0" layoutY="668.0" mnemonicParsing="false" onAction="#exit" text="EXIT">
          <graphic>
             <FontAwesomeIconView glyphName="CLOSE" textAlignment="CENTER" wrappingWidth="28.0" />
@@ -279,5 +277,10 @@
             <FontAwesomeIconView glyphName="WRENCH" layoutX="394.0" layoutY="317.0" size="40" wrappingWidth="48.85714340209961" />
          </children>
       </AnchorPane>
+      <ImageView fitHeight="94.0" fitWidth="122.0" layoutX="952.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
